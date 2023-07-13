@@ -1,6 +1,6 @@
 import './App.css';
-import React, { useRef, useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
+import React from 'react';
+import { useSelector } from 'react-redux'
 // import { increment, zeroingExp } from './redux/store/store'
 import Header from './components/Header/Header';
 import Market from './components/Market/Market';
