@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useRef, useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
+// import { increment, zeroingExp } from './redux/store/store'
+import Header from './components/Header/Header';
+import Market from './components/Market/Market';
+import Garage from './components/Garage/Garage';
 
 function App() {
+  const view = useSelector(state => state.counter.view);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Header />
+      {view === 'market' ? <Market /> : <Garage />}
     </div>
   );
 }
