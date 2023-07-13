@@ -7,11 +7,11 @@ body {
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-color: rgb(53, 2, 116); */
-  background-image: url('../src/img/bkg.jpg');
+  background-color: rgb(27, 27, 27);
+  /* background-image: url('../src/img/bkg.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 30%;
+  background-position: 30%; */
   font-family: 'Press Start 2P', cursive;
   color: white;
 }

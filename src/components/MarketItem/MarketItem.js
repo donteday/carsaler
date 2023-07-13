@@ -1,12 +1,14 @@
 import './MarketItem.css';
 import React, { useRef } from 'react';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { incrementMoney, buyCar } from '../../redux/store/store'
 
 const MarketItem = ({car}) => {
     const dispatch = useDispatch();
     const thisRef = useRef();
+    const money = useSelector(state => state.counter.money);
     function buy() {
+        if ((money - car.endPrice) <= 0 ) return;
         dispatch(incrementMoney(-car.endPrice));
         dispatch(buyCar(car));
         thisRef.current.remove();
