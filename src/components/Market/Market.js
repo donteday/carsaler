@@ -15,7 +15,7 @@ const Market = () => {
             img: 'vaz_2114.png',
             damage: (Math.random() * 100).toFixed(0),
             mileage: (Math.random() * 100000).toFixed(0),
-            startPrice: 25000,
+            startPrice: 40000,
             priceRatio: 200,
             endPrice: null,
         },
@@ -24,8 +24,8 @@ const Market = () => {
             img: 'nexia.png',
             damage: (Math.random() * 100).toFixed(0),
             mileage: (Math.random() * 100000).toFixed(0),
-            startPrice: 50000,
-            priceRatio: 400,
+            startPrice: 60000,
+            priceRatio: 300,
             endPrice: null,
         }
     ];

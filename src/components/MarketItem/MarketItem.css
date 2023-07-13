@@ -54,7 +54,24 @@
     border: 2px solid white;
 }
 
-.car__engine {
-    margin-top: 20px;
-    width: 90%;
+.car__repair-icon {
+    width: 50px;
+}
+
+.car__lift {
+    position: absolute;
+    width: 200px;
+}
+
+.car__repair-bar {
+    margin-top: 70px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.car__repair-c {
+    margin-top: 40px;
+    width: 300px;
 }

@@ -37,7 +37,7 @@ const GarageCar = ({ car, index }) => {
             <div className="market__car" ref={thisRef}>
                 <div className='market__car-title'>
                     <span>{car.name}</span>
-                    <img className="market__car-img" src={require(`../../img/${car.img}`)} alt="" style={{filter: `sepia(${100-dmg}%)`}}/>
+                    <img className="market__car-img" src={require(`../../img/${car.img}`)} alt="" style={{ filter: `sepia(${100 - dmg}%)` }} />
                 </div>
                 <div className='market__car-info'>
                     <span>Состояние: {car.damage}</span>
@@ -48,11 +48,16 @@ const GarageCar = ({ car, index }) => {
                 </div>
             </div>
             <div className='car__repair' ref={repairRef}>
-                <span>{car.damage}</span>
-                <img className="car__engine" src={require('../../img/engine.png')} alt="" ref={engineRef}
-                onTouchStart={engineScale}
-                // onMouseDown={engineScale}
-                onMouseUp={engineUnScale} />
+                <img className="car__lift" src={require(`../../img/lift_1.png`)} alt="" />
+                <img className="car__repair-c" src={require(`../../img/${car.img}`)} alt="" style={{ filter: `sepia(${100 - dmg}%)` }} />
+                <img className="car__lift" src={require(`../../img/lift_2.png`)} alt="" />
+                <div className='car__repair-bar'>
+                    <span>{car.damage}</span>
+
+                    <img className="car__repair-icon" src={require('../../img/key.png')} alt="" ref={engineRef}
+                        onTouchStart={engineScale}
+                        onMouseUp={engineUnScale} />
+                </div>
             </div>
         </div>
     );
