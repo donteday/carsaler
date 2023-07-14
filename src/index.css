@@ -1,17 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ruslan+Display&display=swap');
 
 body {
   width: 100vw;
   height: 100vh;
-
-
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(27, 27, 27);
-  /* background-image: url('../src/img/bkg.jpg');
-  background-repeat: no-repeat;
+  background-image: url('../src/img/stucco_2.jpg');
+  /* background-repeat: no-repeat; */
   background-size: cover;
-  background-position: 30%; */
+  background-position: center;
   font-family: 'Press Start 2P', cursive;
   color: white;
 }

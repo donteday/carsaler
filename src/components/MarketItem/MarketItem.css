@@ -5,14 +5,27 @@
 .market__car {
     display: flex;
     flex-direction: row;
+    position: relative;
     align-items: center;
     justify-content: space-between;
     padding: 10px;
-    border: 1px solid rgb(255, 255, 255);
+    border: 4px solid rgb(255, 255, 255);
     width: 100%;
     margin-bottom: 10px;
+    background-image: url('../../img/vorota_2.png');
+    background-size: 20%;
     background-color: rgb(35, 35, 35);
 
+}
+
+.market__car::after {
+    content: "";
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(-90deg, rgb(3, 3, 3) 40%, rgba(0,0,0,0) 100%);
+    right: 0;
+    z-index: 0;
 }
 
 .market__car-title {
@@ -28,7 +41,7 @@
 .market__car-info {
     display: flex;
     flex-direction: column;
-
+    z-index: 5;
 }
 
 .market__car-info span {
@@ -48,14 +61,28 @@
     right: 0;
     margin: 0 auto;
     width: 300px;
-    height: 350px;
-    background-color: rgb(27, 27, 27);
+    height: 330px;
+    background-image: url('../../img/service.jpg');
+    background-size: cover;
+    background-position: 50%;
     z-index: 5;
-    border: 2px solid white;
+    border: 4px solid white;
+}
+
+.car__repair::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(0deg, rgba(3, 3, 3, 0.776) 20%, rgba(0,0,0,0) 100%);
+    bottom: 0;
+    z-index: -1;
 }
 
 .car__repair-icon {
     width: 50px;
+    z-index: 5;
+
 }
 
 .car__lift {

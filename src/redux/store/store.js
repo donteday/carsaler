@@ -12,8 +12,9 @@ export const counterSlice = createSlice({
     view: 'garage',
     lvl: 1,
     currentExp: 0,
-    money: 15000,
+    money: 45000,
     garage: [],
+    garageSpaces: [0],
   },
   reducers: {
     incrementMoney: (state, action) => {
