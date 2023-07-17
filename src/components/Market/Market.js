@@ -7,8 +7,9 @@ const Market = () => {
             damage: (Math.random() * 100).toFixed(0),
             mileage: (Math.random() * 100000).toFixed(0),
             startPrice: 5000,
-            priceRatio: 100,
+            ratio: 100,
             endPrice: null,
+            status: false,
         },
         {
             name: 'ВАЗ 2114',
@@ -16,8 +17,9 @@ const Market = () => {
             damage: (Math.random() * 100).toFixed(0),
             mileage: (Math.random() * 100000).toFixed(0),
             startPrice: 40000,
-            priceRatio: 200,
+            ratio: 200,
             endPrice: null,
+            status: false,
         },
         {
             name: 'НЕКСИЯ',
@@ -25,11 +27,12 @@ const Market = () => {
             damage: (Math.random() * 100).toFixed(0),
             mileage: (Math.random() * 100000).toFixed(0),
             startPrice: 60000,
-            priceRatio: 300,
+            ratio: 300,
             endPrice: null,
+            status: false,
         }
     ];
-    arr.forEach(e => e.endPrice = e.startPrice + e.damage * e.priceRatio);
+    arr.forEach(e => e.endPrice = e.startPrice + e.damage * e.ratio);
     
 
     return (<>

@@ -27,7 +27,7 @@ const Garage = () => {
         {garageSpaces.map((e, index) =>
             index < garageSpaces.length - garage.length
                 ? <div className='garage__place' key={index}>
-                    <span >Пусто</span>
+                    <span className='empty'>Пусто</span>
                 </div>
                 : ''
         )}

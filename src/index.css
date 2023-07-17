@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ruslan+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 body {
   width: 100vw;
@@ -7,12 +8,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(27, 27, 27);
-  background-image: url('../src/img/stucco_2.jpg');
+  background-image: url('../src/img/stucco_3.jpg');
   /* background-repeat: no-repeat; */
-  background-size: cover;
+  background-size: 70%;
   background-position: center;
-  font-family: 'Press Start 2P', cursive;
+  /* font-family: 'Press Start 2P', cursive; */
+  font-family: 'Roboto', sans-serif;
   color: white;
+  /* -webkit-text-stroke: .3px #020202; */
 }
 
 * {

@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { incrementMoney, sellCar, carRepair } from '../../redux/store/store'
+import { incrementMoney, sellCar, carRepair, carStatus } from '../../redux/store/store'
 
 
 
@@ -10,23 +10,26 @@ const GarageCar = ({ car, index }) => {
     const repairRef = useRef();
     const engineRef = useRef();
     const dmg = useSelector(state => state.counter.garage[index].damage);
-
+    const saleDuration = car.mileage;
     function sell() {
-        dispatch(incrementMoney(car.endPrice));
-        dispatch(sellCar(index));
+        console.log(car.status);
+        if (car.status) return;
+        dispatch(carStatus(index));
+        setTimeout(() => {
+            dispatch(incrementMoney(car.endPrice));
+            dispatch(sellCar(index));
+        }, saleDuration);
     }
     function onRepair() {
         if (car.damage >= 100) return;
         repairRef.current.style.display = 'flex';
     }
-
     function engineScale() {
         if (car.damage >= 99) {
             repairRef.current.style.display = 'none';
         }
         engineRef.current.style.transform = 'scale(1.05)';
         dispatch(carRepair(index));
-
     }
     function engineUnScale() {
         engineRef.current.style.transform = 'scale(1)'
@@ -34,12 +37,15 @@ const GarageCar = ({ car, index }) => {
 
     return (
         <div className='car__container'>
-            <div className="market__car" ref={thisRef}>
+            <div className="market__car garage_car" ref={thisRef}>
                 <div className='market__car-title'>
                     <span>{car.name}</span>
                     <img className="market__car-img" src={require(`../../img/${car.img}`)} alt="" style={{ filter: `sepia(${100 - dmg}%)` }} />
+                    <span>{car.status ? `Время продажи: ${saleDuration/1000}сек` : ''}</span>
+
                 </div>
                 <div className='market__car-info'>
+                    <span style={car.status ? { color: `yellowgreen` } : { color: `red` }}>{car.status ? 'В продаже' : 'Не продается'}</span>
                     <span>Состояние: {car.damage}</span>
                     <span>Цена: {car.endPrice}</span>
                     <span>Пробег: {car.mileage}км</span>

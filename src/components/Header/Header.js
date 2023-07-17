@@ -9,20 +9,24 @@ const Header = () => {
     // const lvl = useSelector(state => state.counter.lvl);
 
     function inGarage() {
-        dispatch(update({name: 'view', source: 'garage'}));
+        dispatch(update({ name: 'view', source: 'garage' }));
     }
     function inMarket() {
-        dispatch(update({name: 'view', source: 'market'}));
+        dispatch(update({ name: 'view', source: 'market' }));
     }
 
     return (
         <div className='header'>
+            <div className="header__buttons">
+                <span className="link" onClick={inGarage}>Гараж</span>
+                <span className="link" onClick={inMarket}>Рынок</span>
+            </div>
+
             <div className="header__info">
                 {/* <span>lvl: {lvl} </span> */}
                 <span>Деньги: {money} Р</span>
             </div>
-            <span className="link" onClick={inGarage}>Гараж</span>
-            <span className="link" onClick={inMarket}>Рынок</span>
+
         </div >
     );
 }

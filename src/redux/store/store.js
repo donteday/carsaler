@@ -12,7 +12,7 @@ export const counterSlice = createSlice({
     view: 'garage',
     lvl: 1,
     currentExp: 0,
-    money: 45000,
+    money: 999000,
     garage: [],
     garageSpaces: [0],
   },
@@ -29,14 +29,17 @@ export const counterSlice = createSlice({
     sellCar: (state, action) => {
       state.garage.splice(action.payload, 1);
     },
+    carStatus: (state, action) => {
+      state.garage[action.payload].status = true;
+    },
     carRepair: (state, action) => {
       state.garage[action.payload].damage = +state.garage[action.payload].damage + 1;
-      state.garage[action.payload].endPrice = state.garage[action.payload].startPrice + state.garage[action.payload].damage*state.garage[action.payload].priceRatio;
+      state.garage[action.payload].endPrice = state.garage[action.payload].startPrice + state.garage[action.payload].damage*state.garage[action.payload].ratio;
     }
   }
 })
 
 
-export const { incrementMoney, update, buyCar, sellCar, carRepair} = counterSlice.actions
+export const { incrementMoney, update, buyCar, sellCar, carRepair, carStatus} = counterSlice.actions
 
 export default counterSlice.reducer
