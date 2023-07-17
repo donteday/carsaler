@@ -6,7 +6,7 @@ import { update } from '../../redux/store/store'
 const Header = () => {
     const dispatch = useDispatch();
     const money = useSelector(state => state.counter.money);
-    // const lvl = useSelector(state => state.counter.lvl);
+    const lvl = useSelector(state => state.counter.lvl);
 
     function inGarage() {
         dispatch(update({ name: 'view', source: 'garage' }));
@@ -23,7 +23,7 @@ const Header = () => {
             </div>
 
             <div className="header__info">
-                {/* <span>lvl: {lvl} </span> */}
+                <span className="header__info-lvl">Ур. {lvl}</span>
                 <span>Деньги: {money} Р</span>
             </div>
 

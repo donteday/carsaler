@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { incrementMoney, sellCar, carRepair, carStatus } from '../../redux/store/store'
+import { incrementMoney, sellCar, carRepair, carStatus, addExp } from '../../redux/store/store'
 
 
 
@@ -9,13 +9,15 @@ const GarageCar = ({ car, index }) => {
     const thisRef = useRef();
     const repairRef = useRef();
     const engineRef = useRef();
+    const blackRef = useRef();
     const dmg = useSelector(state => state.counter.garage[index].damage);
-    const saleDuration = car.mileage;
+    const saleDuration = car.mileage/5 + car.ratio*100;
     function sell() {
         console.log(car.status);
         if (car.status) return;
         dispatch(carStatus(index));
         setTimeout(() => {
+            dispatch(addExp(car.endPrice));
             dispatch(incrementMoney(car.endPrice));
             dispatch(sellCar(index));
         }, saleDuration);
@@ -23,12 +25,15 @@ const GarageCar = ({ car, index }) => {
     function onRepair() {
         if (car.damage >= 100) return;
         repairRef.current.style.display = 'flex';
+        blackRef.current.style.display = 'block';
     }
     function engineScale() {
         if (car.damage >= 99) {
             repairRef.current.style.display = 'none';
+            blackRef.current.style.display = 'none';
         }
         engineRef.current.style.transform = 'scale(1.05)';
+        dispatch(addExp(1000));
         dispatch(carRepair(index));
     }
     function engineUnScale() {
@@ -41,7 +46,7 @@ const GarageCar = ({ car, index }) => {
                 <div className='market__car-title'>
                     <span>{car.name}</span>
                     <img className="market__car-img" src={require(`../../img/${car.img}`)} alt="" style={{ filter: `sepia(${100 - dmg}%)` }} />
-                    <span>{car.status ? `Время продажи: ${saleDuration/1000}сек` : ''}</span>
+                    <span>{car.status ? `Время продажи: ${saleDuration / 1000}сек` : ''}</span>
 
                 </div>
                 <div className='market__car-info'>
@@ -65,6 +70,7 @@ const GarageCar = ({ car, index }) => {
                         onMouseUp={engineUnScale} />
                 </div>
             </div>
+            <div className="black" ref={blackRef}></div>
         </div>
     );
 }

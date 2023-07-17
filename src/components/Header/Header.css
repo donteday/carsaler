@@ -16,6 +16,10 @@
     justify-content: space-between;
 }
 
+.header__info-lvl {
+    margin-right: 10px;
+}
+
 .link {
     padding: 5px;
     margin: 2px;

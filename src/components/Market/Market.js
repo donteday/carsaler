@@ -1,4 +1,5 @@
 import MarketItem from "../MarketItem/MarketItem";
+
 const Market = () => {
     let arr = [
         {
@@ -33,17 +34,14 @@ const Market = () => {
         }
     ];
     arr.forEach(e => e.endPrice = e.startPrice + e.damage * e.ratio);
-    
-
     return (<>
-    Рынок
-        {
-            
-            arr.map((e, index) =>
-                <MarketItem
-                    car={e}
-                    key={index}
-                    index={index} />)
+        Рынок
+        {arr.map((e, index) =>
+            <MarketItem
+                car={e}
+                key={index}
+                index={index} />
+        )
         }
     </>);
 }

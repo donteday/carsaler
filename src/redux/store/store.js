@@ -11,8 +11,9 @@ export const counterSlice = createSlice({
     sound: true,
     view: 'garage',
     lvl: 1,
+    maxExp: 100000,
     currentExp: 0,
-    money: 999000,
+    money: 15000,
     garage: [],
     garageSpaces: [0],
   },
@@ -22,6 +23,15 @@ export const counterSlice = createSlice({
     },
     update: (state, action) => {
       state[action.payload.name] = action.payload.source;
+    },
+    addExp: (state, action) => {
+      console.log(state.currentExp);
+      state.currentExp += action.payload;
+      if (state.currentExp >= state.maxExp) {
+        state.lvl = state.lvl + 1;
+        state.currentExp = 0;
+        state.maxExp = state.lvl * state.lvl * 100000;
+      }
     },
     buyCar: (state, action) => {
       state.garage.push(action.payload);
@@ -40,6 +50,6 @@ export const counterSlice = createSlice({
 })
 
 
-export const { incrementMoney, update, buyCar, sellCar, carRepair, carStatus} = counterSlice.actions
+export const { incrementMoney, update, buyCar, sellCar, carRepair, carStatus, addExp} = counterSlice.actions
 
 export default counterSlice.reducer
