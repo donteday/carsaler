@@ -1,18 +1,49 @@
 .garage__place {
     width: 100%;
-    height: 150px;
+    height: 80vh;
     margin-bottom: 10px;
-    border: 4px solid rgb(0, 0, 0);
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url('../../img/parkovka.jpg');
-    background-size: cover;
-    background-position: center;
-    filter: grayscale(100%) brightness(50%);
 }
 
 .garage_car {
-    background-image: url('../../img/parkovka.jpg');
-    background-size: cover;
+    position: relative;
+    /* border: 2px solid red; */
+    background: none;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 80vh;
+    overflow: hidden;
+}
+
+.garage_car-title {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 10px;
+    background-color: rgba(0, 0, 0, 0.598);
+    width: 100%;
+    border-radius: 10px;
+    z-index: 5;
+}
+
+.garage_car-img {
+    position: absolute;
+    display: block;
+    top: 30vh;
+    left: -10%;
+    width: 500px;
+}
+
+.garage__car-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.garage__car-buttons {
+    display: flex;
+    flex-direction: column;
 }
