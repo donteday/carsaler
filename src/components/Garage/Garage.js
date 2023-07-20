@@ -19,13 +19,13 @@ const Garage = () => {
 
     return (<>
         Гараж
-        {garage.map((e, index) =>
+        {garage?.map((e, index) =>
             <GarageCar
                 car={e}
                 key={index}
                 index={index} />)}
         {garageSpaces.map((e, index) =>
-            index < garageSpaces.length - garage.length
+            index < garageSpaces.length - garage?.length
                 ? <div className='garage__place' key={index}>
                     <span className='empty'>Пусто</span>
                 </div>

@@ -47,3 +47,15 @@
     display: flex;
     flex-direction: column;
 }
+
+@media (min-width: 768px) {
+    .garage_car {
+        overflow: visible;
+    }
+    
+    .garage_car-img {
+        bottom: 20vh;
+        left: -30%;
+        width: 900px;
+    } 
+}

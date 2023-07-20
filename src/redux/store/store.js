@@ -1,20 +1,25 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+const localStore = localStorage.playerData
+const moneyStart = localStore ? JSON.parse(localStore).money : 15000;
+const lvlStart = localStore ? JSON.parse(localStore).lvl : 1;
+const maxExpStart = localStore ? JSON.parse(localStore).maxExp : 100000;
+const currentExpStart = localStore ? JSON.parse(localStore).currentExp : 0;
+const garageStart = localStore ? JSON.parse(localStore).garage : [];
+const repairStart = localStore ? JSON.parse(localStore).repair : 1;
 
-// const localStore = localStorage.playerData
-
-// const moneyStart = localStore ? JSON.parse(localStore).money : 100;
 
 export const counterSlice = createSlice({
   name: 'game',
   initialState: {
     sound: true,
     view: 'garage',
-    lvl: 1,
-    maxExp: 100000,
-    currentExp: 0,
-    money: 15000,
-    garage: [],
+    lvl: lvlStart,
+    maxExp: maxExpStart,
+    currentExp: currentExpStart,
+    money: moneyStart,
+    repair: repairStart,
+    garage: garageStart,
     garageSpaces: [0],
   },
   reducers: {
@@ -43,8 +48,9 @@ export const counterSlice = createSlice({
       state.garage[action.payload].status = true;
     },
     carRepair: (state, action) => {
-      state.garage[action.payload].damage = +state.garage[action.payload].damage + 1;
+      state.garage[action.payload].damage = +state.garage[action.payload].damage + state.repair;
       state.garage[action.payload].endPrice = state.garage[action.payload].startPrice + state.garage[action.payload].damage*state.garage[action.payload].ratio;
+      if (state.garage[action.payload].damage >= 100) state.garage[action.payload].damage = 100;
     }
   }
 })

@@ -7,6 +7,8 @@ const Header = () => {
     const dispatch = useDispatch();
     const money = useSelector(state => state.counter.money);
     const lvl = useSelector(state => state.counter.lvl);
+    const currentExp = useSelector(state => state.counter.currentExp);
+    const maxExp = useSelector(state => state.counter.maxExp);
 
     function inGarage() {
         dispatch(update({ name: 'view', source: 'garage' }));
@@ -17,16 +19,15 @@ const Header = () => {
 
     return (
         <div className='header'>
-            <div className="header__buttons">
-                <span className="link" onClick={inGarage}>Гараж</span>
-                <span className="link" onClick={inMarket}>Рынок</span>
-            </div>
-
+            <span className='header__exp' style={{ width: `${currentExp / maxExp * 100}%` }}></span>
             <div className="header__info">
                 <span className="header__info-lvl">Ур. {lvl}</span>
                 <span>Деньги: {money} Р</span>
             </div>
-
+            <div className="header__buttons">
+                <span className="link" onClick={inGarage}>Гараж</span>
+                <span className="link" onClick={inMarket}>Рынок</span>
+            </div>
         </div >
     );
 }

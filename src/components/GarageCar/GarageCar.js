@@ -1,14 +1,12 @@
 import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { incrementMoney, sellCar, carRepair, carStatus, addExp } from '../../redux/store/store'
-
-
+import { incrementMoney, sellCar, carStatus, addExp } from '../../redux/store/store'
+import Repair from '../Repair/Repair';
 
 const GarageCar = ({ car, index }) => {
     const dispatch = useDispatch();
     const thisRef = useRef();
     const repairRef = useRef();
-    const engineRef = useRef();
     const blackRef = useRef();
     const dmg = useSelector(state => state.counter.garage[index].damage);
     const saleDuration = car.mileage / 5 + car.ratio * 100;
@@ -26,18 +24,6 @@ const GarageCar = ({ car, index }) => {
         if (car.damage >= 100) return;
         repairRef.current.style.display = 'flex';
         blackRef.current.style.display = 'block';
-    }
-    function engineScale() {
-        if (car.damage >= 99) {
-            repairRef.current.style.display = 'none';
-            blackRef.current.style.display = 'none';
-        }
-        engineRef.current.style.transform = 'scale(1.05)';
-        dispatch(addExp(250));
-        dispatch(carRepair(index));
-    }
-    function engineUnScale() {
-        engineRef.current.style.transform = 'scale(1)'
     }
 
     return (
@@ -61,18 +47,7 @@ const GarageCar = ({ car, index }) => {
                 <img className="garage_car-img" src={require(`../../img/${car.img}`)} alt="" style={{ filter: `sepia(${100 - dmg}%)` }} />
 
             </div>
-            <div className='car__repair' ref={repairRef}>
-                <img className="car__lift" src={require(`../../img/lift_1.png`)} alt="" />
-                <img className="car__repair-c" src={require(`../../img/${car.img}`)} alt="" style={{ filter: `sepia(${100 - dmg}%)` }} />
-                <img className="car__lift" src={require(`../../img/lift_2.png`)} alt="" />
-                <div className='car__repair-bar'>
-                    <span>{car.damage}</span>
-
-                    <img className="car__repair-icon" src={require('../../img/key.png')} alt="" ref={engineRef}
-                        onTouchStart={engineScale}
-                        onMouseUp={engineUnScale} />
-                </div>
-            </div>
+            <Repair repairRef={repairRef} blackRef={blackRef} car={car} index={index}/>
             <div className="black" ref={blackRef}></div>
         </div>
     );
