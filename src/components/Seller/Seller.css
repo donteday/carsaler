@@ -1,0 +1,38 @@
+.seller__container {
+    display: none;
+
+}
+
+.seller {
+    display: none;
+    width: 600px;
+    position: absolute;
+    flex-direction: column;
+    z-index: 10;
+    bottom: 0;
+    left: 20%;
+
+}
+
+.seller__man {
+    width: 50%;
+}
+
+.seller__speech {
+    color: black;
+    font-size: 1em;
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-image: url('../../img/speech_bubble.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 400px;
+    height: 200px;
+    right: 0;
+}
+
+.seller__speech-btn {
+    display: flex;
+}

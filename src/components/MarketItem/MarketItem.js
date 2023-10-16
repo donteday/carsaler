@@ -16,6 +16,11 @@ const MarketItem = ({ car, index }) => {
         dispatch(buyCar(car));
         thisRef.current.remove();
     }
+    function roundThousend(amount) {
+        if (amount > 1000000) return (amount / 1000000).toFixed(1) + 'м';
+        if (amount > 1000) return (amount / 1000).toFixed(1) + 'т';
+        return amount.toFixed(0);
+    }
     return (
         <div className='car__container'>
             {
@@ -27,8 +32,8 @@ const MarketItem = ({ car, index }) => {
                     </div>
                     <div className='market__car-info'>
                         <span>Состояние: {car.damage}</span>
-                        <span>Цена: {car.endPrice}</span>
-                        <span>Пробег: {car.mileage}км</span>
+                        <span>Цена: {roundThousend(car.endPrice)}</span>
+                        <span>Пробег: {roundThousend(car.mileage)}</span>
                         <span className='link' onClick={buy}>Купить</span>
                     </div>
                 </div>

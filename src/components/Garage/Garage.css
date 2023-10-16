@@ -1,3 +1,10 @@
+.car__container {
+    /* width: 500px; */
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid red; */
+
+}
 .garage__place {
     width: 100%;
     height: 80vh;
@@ -20,13 +27,15 @@
 }
 
 .garage_car-title {
+    /* border: 2px solid red; */
+
     display: flex;
     justify-content: space-between;
     padding: 10px;
     margin: 10px;
-    background-color: rgba(0, 0, 0, 0.598);
+    /* background-color: rgba(0, 0, 0, 0.598); */
     width: 100%;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     z-index: 5;
 }
 
@@ -36,16 +45,28 @@
     top: 30vh;
     left: -10%;
     width: 500px;
+    /* animation: carenter 1s ease-in-out; */
 }
 
 .garage__car-info {
     display: flex;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    padding: 10px;
+    max-width: 400px;
     flex-direction: column;
+    background-color: rgb(0, 0, 0);
+
 }
 
 .garage__car-buttons {
     display: flex;
-    flex-direction: column;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+
 }
 
 @media (min-width: 768px) {
@@ -58,4 +79,13 @@
         left: -30%;
         width: 900px;
     } 
+}
+
+@keyframes carenter {
+    0% {
+        left: 100%;
+    }
+    /* 100% {
+        left: -10%;
+    } */
 }

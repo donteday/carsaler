@@ -8,13 +8,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(27, 27, 27);
-  background-image: url('../src/img/garage_int.jpg');
+  background-image: url('../src/img/garage_int.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
-  /* font-family: 'Press Start 2P', cursive; */
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Press Start 2P', cursive;
+  /* font-family: 'Roboto', sans-serif; */
   color: white;
   /* -webkit-text-stroke: .3px #020202; */
 }
