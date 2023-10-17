@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { incrementMoney, sellCar, carStatus, addExp } from '../../redux/store/store'
+import { update } from '../../redux/store/store'
 import Repair from '../Repair/Repair';
 import Seller from '../Seller/Seller';
 
@@ -11,9 +11,11 @@ const GarageCar = ({ car, index }) => {
     const blackRef = useRef();
     const sellerRef = useRef();
     const dmg = useSelector(state => state.counter.garage[index].damage);
-    const saleDuration = car.mileage / 5 + car.ratio * 100;
+    const seller = useSelector(state => state.counter.seller);
+    // const saleDuration = car.mileage / 5 + car.ratio * 100;
     function sell() {
         sellerRef.current.style.display = 'flex';
+        dispatch(update({ name: 'seller', source: true }));
 
         // if (car.status) return;
         // dispatch(carStatus(index));
@@ -41,17 +43,22 @@ const GarageCar = ({ car, index }) => {
                 <span>Состояние: {car.damage}</span>
                 <span>Цена: {car.endPrice}</span>
                 <span>Пробег: {car.mileage}км</span>
-                <span style={car.status ? { color: `yellowgreen` } : { color: `red` }}>{car.status ? 'В продаже' : 'Не продается'}</span>
-                <span>{car.status ? `Время продажи: ${(saleDuration / 1000).toFixed(0)}сек` : ''}</span>
+                {/* <span style={car.status ? { color: `yellowgreen` } : { color: `red` }}>{car.status ? 'В продаже' : 'Не продается'}</span> */}
+                {/* <span>{car.status ? `Время продажи: ${(saleDuration / 1000).toFixed(0)}сек` : ''}</span> */}
             </div>
             <div className="garage_car" ref={thisRef}>
 
                 <div className='garage_car-title'>
+                    {
+                        seller === false ?
+                            <div className='garage__car-buttons'>
+                                <span className='link' onClick={sell}>Продать</span>
+                                <span className='link' onClick={onRepair}>Починить</span>
+                            </div>
+                            :
+                            ''
+                    }
 
-                    <div className='garage__car-buttons'>
-                        <span className='link' onClick={sell}>Продать</span>
-                        <span className='link' onClick={onRepair}>Починить</span>
-                    </div>
                 </div>
                 <img className="garage_car-img" src={require(`../../img/shadow.png`)} alt="" style={{ filter: `sepia(${100 - dmg}%)` }} />
                 <img className="garage_car-img" src={require(`../../img/${car.img}`)} alt="" style={{ filter: `sepia(${100 - dmg}%)` }} />

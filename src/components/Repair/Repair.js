@@ -35,6 +35,11 @@ const Repair = ({ repairRef, blackRef, car, index }) => {
         dispatch(update({ name: 'repair', source: repairRatio + 1 }));
         dispatch(incrementMoney(- improveRepairPrice));
     }
+    function roundThousend(amount) {
+        if (amount > 1000000) return (amount / 1000000).toFixed(1) + 'м';
+        if (amount > 1000) return (amount / 1000).toFixed(1) + 'т';
+        return amount.toFixed(0);
+    }
 
     return (
         <div className='car__repair' ref={repairRef}>
@@ -50,7 +55,7 @@ const Repair = ({ repairRef, blackRef, car, index }) => {
                     onMouseDown={engineScaleAnimation}
                     onMouseUp={engineUnScale} />
             </div>
-            <span className='link repair__button' onClick={improveRepair}>Улучшить инcтрумент за {improveRepairPrice}</span>
+            <span className='link repair__button' onClick={improveRepair}>+ инcтрумент {roundThousend(improveRepairPrice)}</span>
         </div>
     );
 }

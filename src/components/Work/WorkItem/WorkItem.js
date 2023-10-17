@@ -4,9 +4,11 @@ import { workUp, incrementMoney } from '../../../redux/store/store'
 
 
 const WorkItem = ({ item, index }) => {
-    let itemPrice = Math.pow((item.amount + 1),2)*(index+1)*100
+    let itemPrice = Math.pow((item.amount + 1), 2) * Math.pow(10, (index + 1))
     const dispatch = useDispatch();
     const money = useSelector(state => state.counter.money);
+    const lvl = useSelector(state => state.counter.lvl);
+
     function workItemHendler() {
         if (money - itemPrice < 0) return;
         dispatch(workUp({ 'index': index, 'amount': 1 }))
@@ -18,18 +20,28 @@ const WorkItem = ({ item, index }) => {
         return amount.toFixed(0);
     }
     return (
-        <div className="work-item__container">
-            <div className='work-item__img'>
+        <div >
+            {index <= lvl - 1 ?
+                <div className="work-item__container">
+                    <div className=''>
+                        <img className="work-item__img" src={require(`../../../img/work${index}.png`)} alt="" />
 
-            </div>
-            <div className='work-item__info'>
-                {item.name}
-                <div>{Math.pow(item.amount,(index+1))*(index+1)}</div>
-            </div>
-            <div className='link' onClick={workItemHendler}>
-                качать {roundThousend(itemPrice)}
-            </div>
+                    </div>
+                    <div className='work-item__info'>
+                        {item.name}
+                        <div>{roundThousend(Math.pow(item.amount, (index + 1)) * (index + 1))}/сек</div>
+                    </div>
+                    <div className='link' onClick={workItemHendler}>
+                        + {roundThousend(itemPrice)}
+                    </div>
+                </div>
+                :
+                <div className="work-item__container">{index+1} уровень</div>
+            }
+
         </div>
+
+
     );
 }
 

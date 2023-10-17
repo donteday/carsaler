@@ -37,7 +37,7 @@ const MarketItem = ({ car, index }) => {
                         <span className='link' onClick={buy}>Купить</span>
                     </div>
                 </div>
-                : <div className="market__car">Откроется на {index+1} уровне</div>
+                : <div className="market__car">{index+1} уровень</div>
             }
 
         </div>

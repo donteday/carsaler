@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const localStore = localStorage.playerData1
-const moneyStart = localStore ? JSON.parse(localStore).money : 15000;
-const lvlStart = localStore ? JSON.parse(localStore).lvl : 1;
+// const moneyStart = localStore ? JSON.parse(localStore).money : 15000;
+// const lvlStart = localStore ? JSON.parse(localStore).lvl : 1;
 const maxExpStart = localStore ? JSON.parse(localStore).maxExp : 100000;
 const currentExpStart = localStore ? JSON.parse(localStore).currentExp : 0;
 const garageStart = localStore ? JSON.parse(localStore).garage : [];
@@ -20,6 +20,7 @@ export const counterSlice = createSlice({
     repair: repairStart,
     garage: garageStart,
     garageSpaces: [0],
+    seller: false,
     work: [
       { name: 'Курьер', amount: 1, max: 999 },
       { name: 'Такси', amount: 0, max: 999 },

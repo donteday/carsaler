@@ -1,38 +1,46 @@
 .seller__container {
     display: none;
-
 }
 
 .seller {
     display: none;
-    width: 600px;
+    max-width: 600px;
     position: absolute;
+
     flex-direction: column;
     z-index: 10;
     bottom: 0;
-    left: 20%;
-
+    margin-top: auto;
 }
 
 .seller__man {
     width: 50%;
+    margin-top: 70px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* overflow: hidden; */
 }
 
 .seller__speech {
     color: black;
-    font-size: 1em;
-    padding: 20px 40px;
+    font-size: 13px;
+    padding: 25px 30px;
     display: flex;
     flex-direction: column;
     position: absolute;
     background-image: url('../../img/speech_bubble.png');
     background-repeat: no-repeat;
     background-size: contain;
-    width: 400px;
+    max-width: 350px;
     height: 200px;
     right: 0;
 }
 
 .seller__speech-btn {
     display: flex;
+    position: absolute;
+    width: 100%;
+    justify-content: space-around;
+    bottom: 10%;
 }

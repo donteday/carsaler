@@ -2,8 +2,6 @@ import { useSelector } from 'react-redux'
 // import { update, incrementMoney } from '../../redux/store/store'
 import GarageCar from '../GarageCar/GarageCar';
 import './Garage.css'
-import Seller from '../Seller/Seller';
-
 
 const Garage = () => {
     // const dispatch = useDispatch();

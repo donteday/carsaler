@@ -7,7 +7,7 @@ import Header from './components/Header/Header';
 import Market from './components/Market/Market';
 import Garage from './components/Garage/Garage';
 import Work from './components/Work/Work';
-import Seller from './components/Seller/Seller';
+// import Seller from './components/Seller/Seller';
 
 function App() {
   const dispatch = useDispatch();
