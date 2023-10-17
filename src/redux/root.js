@@ -8,6 +8,6 @@ export const store = configureStore({
 })
 
 function sub() {
-    localStorage.playerData = JSON.stringify(store.getState().counter);
+    localStorage.playerDataCar = JSON.stringify(store.getState().counter);
   }
 store.subscribe(sub);

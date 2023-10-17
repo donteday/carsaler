@@ -8,7 +8,7 @@ const Work = () => {
 
     return (
         <div className="work__container">
-            {workArr.map((e, index) =><WorkItem item={e} index={index}/>
+            {workArr.map((e, index) =><WorkItem item={e} index={index} key={index}/>
             )}
         </div>
      );
