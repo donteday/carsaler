@@ -2,6 +2,8 @@
     /* width: 500px; */
     display: flex;
     flex-direction: column;
+    position: relative;
+    height: 100%;
     /* border: 2px solid red; */
 
 }
@@ -76,7 +78,7 @@
     .garage_car-img {
         bottom: 20vh;
         left: -30%;
-        width: 900px;
+        width: 800px;
     } 
 }
 

@@ -24,20 +24,21 @@ const MarketItem = ({ car, index }) => {
     return (
         <div className='car__container'>
             {
-                index <= lvl-1 ?
-                <div className="market__car" ref={thisRef}>
-                    <div className='market__car-title'>
-                        <span>{car.name}</span>
-                        <img className="market__car-img" src={require(`../../img/${car.img}`)} alt="" style={{ filter: `sepia(${100 - car.damage}%)` }} />
+                index <= lvl - 1 ?
+                    <div className="market__car" ref={thisRef}>
+                        <div className='market__car-title'>
+                            <span>{car.name}</span>
+                            <img className="market__car-img" src={require(`../../img/${car.img}`)} alt="" style={{ filter: `sepia(${100 - car.damage}%)` }} />
+                        </div>
+                        <div className='market__car-info'>
+                            <span>Цена: {roundThousend(car.endPrice)}</span>
+
+                            <span>Состояние: {car.damage}</span>
+                            <span>Пробег: {roundThousend(car.mileage)}</span>
+                            <span className='link' onClick={buy}>Купить</span>
+                        </div>
                     </div>
-                    <div className='market__car-info'>
-                        <span>Состояние: {car.damage}</span>
-                        <span>Цена: {roundThousend(car.endPrice)}</span>
-                        <span>Пробег: {roundThousend(car.mileage)}</span>
-                        <span className='link' onClick={buy}>Купить</span>
-                    </div>
-                </div>
-                : <div className="market__car">{index+1} уровень</div>
+                    : <div className="market__car">{index + 1} уровень</div>
             }
 
         </div>

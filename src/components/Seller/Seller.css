@@ -14,8 +14,10 @@
 }
 
 .seller__man {
-    width: 50%;
-    margin-top: 70px;
+    display: block;
+    width: 80%;
+
+    margin-top: 50px;
     bottom: 0;
     left: 0;
     right: 0;

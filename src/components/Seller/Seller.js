@@ -31,7 +31,6 @@ const Seller = ({ car, sellerRef }) => {
     }
 
     function sell() {
-        console.log(carPrice);
         // if (car.status) return;
         // // dispatch(carStatus(index));
         dispatch(addExp(carPrice || garage[0].endPrice));
@@ -47,16 +46,14 @@ const Seller = ({ car, sellerRef }) => {
             setCount(count + 1);
             setTimeout(() => {
                 setSellerSpeech(`Возьму за ${roundThousend(priceRef.current)}`);
-
             }, 2000)
         } else {
-            setSellerSpeech(`Последняя цена ${roundThousend(priceRef.current)}!`);
+            setSellerSpeech(`${roundThousend(priceRef.current)}  и хватит!`);
         }
     }
     return (<div className='seller' ref={sellerRef}>
         <div className="seller__speech">
             <span>{sellerSpeech}</span>
-
         </div>
         <div className="seller__speech-btn">
             <span className='link' onClick={sell}>продать</span>

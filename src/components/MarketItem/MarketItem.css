@@ -2,6 +2,12 @@
     width: 100%;
 }
 
+.market__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 .market__car {
     display: flex;
     flex-direction: row;
