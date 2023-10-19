@@ -55,6 +55,7 @@
 .black {
     position: absolute;
     display: none;
+    margin: 0 auto;
     top: 0;
     left: 0;
     width: 100vw;

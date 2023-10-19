@@ -4,9 +4,11 @@
 
 .seller {
     display: none;
-    max-width: 600px;
+    max-width: 450px;
     position: absolute;
-
+    margin: 0 auto;
+    left: 0;
+    right: 0;
     flex-direction: column;
     z-index: 10;
     bottom: 0;
@@ -15,7 +17,7 @@
 
 .seller__man {
     display: block;
-    width: 80%;
+    width: 70%;
 
     margin-top: 50px;
     bottom: 0;
