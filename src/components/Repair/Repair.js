@@ -49,7 +49,7 @@ const Repair = ({ repairRef, blackRef, car, index }) => {
             <img className="car__lift" src={require(`../../img/lift_2.png`)} alt="" />
             <div className='car__repair-bar'>
                 <span>{car.damage}</span>
-                <img className="car__repair-icon" src={require('../../img/key.png')} alt="" ref={engineRef}
+                <div className="car__repair-icon" ref={engineRef}
                     onClick={engineScale}
                     onTouchStart={engineScaleAnimation}
                     onMouseDown={engineScaleAnimation}

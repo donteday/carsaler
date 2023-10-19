@@ -18,7 +18,7 @@
 .seller__man {
     display: block;
     width: 70%;
-
+    pointer-events: none;
     margin-top: 50px;
     bottom: 0;
     left: 0;

@@ -17,7 +17,7 @@ body {
   /* font-family: 'Roboto', sans-serif; */
   color: white;
   /* -webkit-text-stroke: .3px #020202; */
-  /* overflow: hidden; */
+  overflow-x: hidden;
 }
 
 * {
@@ -37,6 +37,8 @@ body {
   user-select: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+
+
 
 *::-webkit-scrollbar {
   display: none;

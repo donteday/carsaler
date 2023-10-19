@@ -39,6 +39,7 @@
 
 .market__car-img {
     width: 250px;
+    pointer-events: none;
 }
 
 .market__car-info {

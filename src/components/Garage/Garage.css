@@ -26,6 +26,7 @@
     justify-content: space-between;
     height: 80vh;
     overflow: hidden;
+
 }
 
 .garage_car-title {
@@ -44,10 +45,12 @@
 .garage_car-img {
     position: absolute;
     display: block;
-    top: 30vh;
+    top: 35vh;
     left: -10%;
     width: 500px;
-    /* animation: carenter 1s ease-in-out; */
+    pointer-events: none;
+    /* overflow: hidden; */
+    /* object-fit: cover; */
 }
 
 .garage__car-info {
@@ -76,9 +79,17 @@
     }
     
     .garage_car-img {
-        bottom: 20vh;
-        left: -30%;
+        bottom: 10vh;
+        left: -10%;
         width: 800px;
+    } 
+}
+
+@media (max-height: 650px) {    
+    .garage_car-img {
+        bottom: 30vh;
+        left: -10%;
+        width: 500px;
     } 
 }
 
